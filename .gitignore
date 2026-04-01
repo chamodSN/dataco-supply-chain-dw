@@ -1,0 +1,27 @@
+# Ignore output folder
+output/
+
+# Ignore VS Code settings 
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Large data files
+# *.csv
+# *.xlsx
+*.pdf
+*.docx
+*.sql
+*.log
+/data profiling
+
+bin/
+obj/
+*.user
+*.suo
+.vs/

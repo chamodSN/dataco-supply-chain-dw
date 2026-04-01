@@ -1,0 +1,401 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/30/2026 6:24:26 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHAMOD"
+  DTS:CreatorName="CHAMOD\chamo"
+  DTS:DTSID="{0B88A63D-BD42-48B6-A386-56AC2F505F11}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DataCoSupplyChain_Update_AccmFact"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{D6A91084-CF36-4994-8EBC-BE465EF5D189}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_DW.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6AF96C13-CA70-4FB5-9178-170618D008F6}"
+      DTS:ObjectName="CHAMOD\MSSQLSERVER2.DataCoSupplyChain_DW.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CHAMOD\MSSQLSERVER2;User ID=sa;Initial Catalog=DataCoSupplyChain_DW;Provider=SQLOLEDB.1;Application Name=SSIS-DataCoSupplyChain_Update_AccmFact-{6AF96C13-CA70-4FB5-9178-170618D008F6}CHAMOD\MSSQLSERVER2.DataCoSupplyChain_DW.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACtIDInPlq6nWImL7bfix3uzshlGs3gT/25OQLODU1C8AAAAAAOgAAAAAIAACAAAAA+xmatb0WU3FB9BGJsJhPtWjUjZ4Wa8FnCdBZcGaMqJhAAAAAahMhWOg0hcFicGaJAO7x9QAAAAL4fOOwbCHNhi0rjTG1JzHXJnWm0cUYcOZN7eE3v5Zd7yoti/AILt3DMC9mD9P81G7JjCqbaK8eR4liTV3iUnS8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_Staging.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1CBCB119-FD77-48EF-8010-F1C8C352E8A9}"
+      DTS:ObjectName="CHAMOD\MSSQLSERVER2.DataCoSupplyChain_Staging.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=CHAMOD\MSSQLSERVER2;User ID=sa;Initial Catalog=DataCoSupplyChain_Staging;Provider=SQLOLEDB.1;Application Name=SSIS-DataCoSupplyChain_Update_AccmFact-{1CBCB119-FD77-48EF-8010-F1C8C352E8A9}CHAMOD\MSSQLSERVER2.DataCoSupplyChain_Staging.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADZ9+AOC9c1QBBP7GVYmqhXl/4jskuzVHOvhdxJ7G2QOwAAAAAOgAAAAAIAACAAAACvVk/NyhMp0HLRWV/o0VMAI8nnmNEnkzU87yG+3REApxAAAAALeRl0JDC63LO8j5trVfwEQAAAAOfwmZkEace00IpokRu3JfPdhpo8RYLNMG+DGDmABWV4v0Gec75xIJxEsKyt7pzBH90R54bgjKTzub06UduMzsQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Update Accumulating Fact Completion Times"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{03DE6783-2AAD-4F0C-A8F6-BB99245DFAE5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Accumulating Fact Completion Times"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Extract Completion Data"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StgTransactionCompletions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_Staging.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_Staging.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[order_item_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].ExternalColumns[order_item_id]"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[order_item_id]"
+                      name="order_item_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].ExternalColumns[order_item_id]"
+                      dataType="i4"
+                      name="order_item_id" />
+                    <externalMetadataColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[order_item_id]"
+                      dataType="i4"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[order_item_id]"
+                      name="order_item_id" />
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time" />
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Fact Completion Time"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC dbo.UpdateFactAccmCompletion ?, ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_DW.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHAMOD\MSSQLSERVER2.DataCoSupplyChain_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].Columns[order_item_id]"
+                      cachedDataType="i4"
+                      cachedName="order_item_id"
+                      externalMetadataColumnId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].ExternalColumns[@order_item_id]"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[order_item_id]" />
+                    <inputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      externalMetadataColumnId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].ExternalColumns[@accm_txn_complete_time]"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].ExternalColumns[@order_item_id]"
+                      dataType="i4"
+                      name="@order_item_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input].ExternalColumns[@accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="@accm_txn_complete_time">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Update Accumulating Fact Completion Times.Paths[OLE DB Source Output]"
+              endId="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time.Inputs[OLE DB Command Input]"
+              name="OLE DB Source Output"
+              startId="Package\Update Accumulating Fact Completion Times\Extract Completion Data.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="288.8,41.6"
+          Id="Package\Update Accumulating Fact Completion Times"
+          TopLeft="50.714285822243,35.9411764390844" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Update Accumulating Fact Completion Times">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\Update Accumulating Fact Completion Times\Extract Completion Data"
+          TopLeft="67.1428572857867,36.7058823207671" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Update Accumulating Fact Completion Times\Update Fact Completion Time"
+          TopLeft="152.857143182536,137.647058702876" />
+        <EdgeLayout
+          Id="Package\Update Accumulating Fact Completion Times.Paths[OLE DB Source Output]"
+          TopLeft="163.542857285787,78.3058823207671">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.1142858967489,59.3411763821094"
+              Start="0,0"
+              End="98.1142858967489,51.8411763821094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6705881910547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6705881910547"
+                    Point2="0,29.6705881910547"
+                    Point3="4,29.6705881910547" />
+                  <mssgle:LineSegment
+                    End="94.1142858967489,29.6705881910547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.1142858967489,29.6705881910547"
+                    Point2="98.1142858967489,29.6705881910547"
+                    Point3="98.1142858967489,33.6705881910547" />
+                  <mssgle:LineSegment
+                    End="98.1142858967489,51.8411763821094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update Accumulating Fact Completion Times\Extract Completion Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
