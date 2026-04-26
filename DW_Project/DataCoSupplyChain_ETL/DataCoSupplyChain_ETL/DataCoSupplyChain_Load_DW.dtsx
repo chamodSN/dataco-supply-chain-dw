@@ -7,12 +7,12 @@
   DTS:CreatorName="CHAMOD\chamo"
   DTS:DTSID="{3AA1D1F3-C288-4F89-8E56-ACF3CE8ED1E0}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="107"
-  DTS:VersionGUID="{2E7291D4-16CC-47BF-BC36-63D61F8DCAE5}">
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{7BDB9377-4132-435B-82AB-1EF4494AE5B0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAyp5lbbNkhFQqMnx2aNvQBJdAcdaYdsBvwT8B4NVpMEwAAAAAOgAAAAAIAACAAAADW5Y3xx8kuuXzz+Kv/YY1bPrpGqAk+txamzDcZkSxSLBAAAAAl9N8+YTqin1zwDcOzhLRzQAAAAKTS5W7JEf0ZorlfaMH2UBXqWbno5C/5C3BzTKxVYeP34Udb0HY021YT1ZeGe3TVu4ZMO8ncGvK+yn2tMoHYk7U</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB8aFLQh7awFOtLi1HKWuX0FVIz58ZI6DuwohvchSx9YwAAAAAOgAAAAAIAACAAAAAppw0lLht71z7ILDtoxPqxxwr5wPQR9ftUlIM07XhNSBAAAAD84yrVuHf1L/A3Xu2ZGCg5QAAAAKZ+LCoEeO968LNnYbfvusiXku4c5Iz6Fzv3eMj74JjRER6F40nzyY5MmA6NYWbO7bbvyfRifc2ANgVUSP16Mso</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABQw4UFCbaY+DZRdLscQDc9/rlpkoIGgjdd8jLS6Sl5XwAAAAAOgAAAAAIAACAAAADoKvIO5/SMZyjo3HsTZ51beq/OOid6TjQXwQZJ1qKTqxAAAAAOmcRuDtGdYqPSSrtbK4HoQAAAAC41USHSjZds+AB9W8h8UOKsAoH1Y84KsgAx5AUZdU8hz6O6qJ84tZqJapTq2F7+/NolNLnNOZDYmUzVKYWfDaI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAChWlSSTdRoJyx94+c/Dn9GMyIoPNPWu0fYyGgrGncKngAAAAAOgAAAAAIAACAAAAAtjqWy118t3/khd5s5YNKcHVb2sQ+xguZrra03VFv+MBAAAABU2bexJfF75o/d2JhQdgqLQAAAAMmvOiZyF+ROx60nWABdjNEuNl7tUu/i1T5FJ2hqQJzCb4yorm0jDQYNST/bdaINTbpb/UYVv+IoNR7mS8QkIwY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -3968,6 +3968,12 @@ where [refTable].[source_country] = ?</property>
                       length="50"
                       lineageId="Package\Transform and Load DIM_SHIPMENT\Extract from Shipment Staging.Outputs[OLE DB Source Error Output].Columns[delivery_status]"
                       name="delivery_status" />
+                    <outputColumn
+                      refId="Package\Transform and Load DIM_SHIPMENT\Extract from Shipment Staging.Outputs[OLE DB Source Error Output].Columns[shipping_date_clean]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Transform and Load DIM_SHIPMENT\Extract from Shipment Staging.Outputs[OLE DB Source Error Output].Columns[shipping_date_clean]"
+                      name="shipping_date_clean" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -13706,17 +13712,17 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
           Id="Package\Transform and Load DIM_SHIPMENT\Extract from Shipment Staging"
           TopLeft="340.999994918704,178.999997332692" />
         <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Transform and Load DIM_SHIPMENT\Load DimShipment"
-          TopLeft="497.999992579222,472.999992951751" />
+          Size="144.8,41.6"
+          Id="Package\Transform and Load DIM_SHIPMENT\Shipment Sort"
+          TopLeft="451.999993264675,376.999994382262" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Transform and Load DIM_SHIPMENT\Derive Late Delivery Risk"
           TopLeft="358.999994650483,281.999995797873" />
         <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Transform and Load DIM_SHIPMENT\Shipment Sort"
-          TopLeft="451.999993264675,376.999994382262" />
+          Size="167.2,41.6"
+          Id="Package\Transform and Load DIM_SHIPMENT\Load DimShipment"
+          TopLeft="497.999992579222,472.999992951751" />
         <EdgeLayout
           Id="Package\Transform and Load DIM_SHIPMENT.Paths[Sort Output]"
           TopLeft="524.399993264675,418.599994382262">
@@ -13835,7 +13841,7 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\Transform and Load Fact Order Item\Load Fact Order Item"
-          TopLeft="94.5999987930059,826.199992921948" />
+          TopLeft="94.5999987930058,826.199992921948" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\Transform and Load Fact Order Item\Order Item Sort"
@@ -13947,40 +13953,6 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Transform and Load Fact Order Item.Paths[Sort Output2]"
-          TopLeft="374.599995872378,216.599997392297">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.7333317538104,84.3999981224537"
-              Start="0,0"
-              End="-69.7333317538104,76.8999981224537">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.1996510571812" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.1996510571812"
-                    Point2="0,50.1996510571812"
-                    Point3="-4,50.1996510571812" />
-                  <mssgle:LineSegment
-                    End="-65.7333317538104,50.1996510571812" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-65.7333317538104,50.1996510571812"
-                    Point2="-69.7333317538104,50.1996510571812"
-                    Point3="-69.7333317538104,54.1996510571812" />
-                  <mssgle:LineSegment
-                    End="-69.7333317538104,76.8999981224537" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Transform and Load Fact Order Item.Paths[Sort Output1]"
           TopLeft="908.599988213182,209.599997496605">
           <EdgeLayout.Curve>
@@ -14040,6 +14012,40 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
                     Point3="-106.999998703599,66.6999987557531" />
                   <mssgle:LineSegment
                     End="-106.999998703599,117.899997511506" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load Fact Order Item.Paths[Sort Output2]"
+          TopLeft="374.599995872378,216.599997392297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-69.7333317538104,84.3999981224537"
+              Start="0,0"
+              End="-69.7333317538104,76.8999981224537">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.1996510571812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.1996510571812"
+                    Point2="0,50.1996510571812"
+                    Point3="-4,50.1996510571812" />
+                  <mssgle:LineSegment
+                    End="-65.7333317538104,50.1996510571812" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-65.7333317538104,50.1996510571812"
+                    Point2="-69.7333317538104,50.1996510571812"
+                    Point3="-69.7333317538104,54.1996510571812" />
+                  <mssgle:LineSegment
+                    End="-69.7333317538104,76.8999981224537" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14161,40 +14167,6 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Transform and Load Fact Order Item.Paths[Merge Join Output2]"
-          TopLeft="597.39999345839,356.79999499321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="125.199995976687,40.9999993890524"
-              Start="0,0"
-              End="117.699995976687,40.9999993890524">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="58.5999979883433,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.5999979883433,0"
-                    Point2="62.5999979883433,0"
-                    Point3="62.5999979883433,4" />
-                  <mssgle:LineSegment
-                    End="62.5999979883433,36.9999993890524" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.5999979883433,36.9999993890524"
-                    Point2="62.5999979883433,40.9999993890524"
-                    Point3="66.5999979883433,40.9999993890524" />
-                  <mssgle:LineSegment
-                    End="117.699995976687,40.9999993890524" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Transform and Load Fact Order Item.Paths[Merge Join Output1]"
           TopLeft="366.999997451901,321.799995514751">
           <EdgeLayout.Curve>
@@ -14242,6 +14214,40 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,23.8999989122152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform and Load Fact Order Item.Paths[Merge Join Output2]"
+          TopLeft="597.39999345839,356.79999499321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.199995976687,40.9999993890524"
+              Start="0,0"
+              End="117.699995976687,40.9999993890524">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58.5999979883433,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.5999979883433,0"
+                    Point2="62.5999979883433,0"
+                    Point3="62.5999979883433,4" />
+                  <mssgle:LineSegment
+                    End="62.5999979883433,36.9999993890524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.5999979883433,36.9999993890524"
+                    Point2="62.5999979883433,40.9999993890524"
+                    Point3="66.5999979883433,40.9999993890524" />
+                  <mssgle:LineSegment
+                    End="117.699995976687,40.9999993890524" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14500,26 +14506,26 @@ where [refTable].[delivery_status] = ? and [refTable].[shipping_mode] = ?</prope
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.3999998807906,42.799997884035"
+              EndConnector="20.3999998807906,42.799997884034"
               Start="0,0"
-              End="20.3999998807906,35.299997884035">
+              End="20.3999998807906,35.299997884034">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.3999989420175" />
+                    End="0,17.399998942017" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.3999989420175"
-                    Point2="0,21.3999989420175"
-                    Point3="4,21.3999989420175" />
+                    Point1="0,17.399998942017"
+                    Point2="0,21.399998942017"
+                    Point3="4,21.399998942017" />
                   <mssgle:LineSegment
-                    End="16.3999998807906,21.3999989420175" />
+                    End="16.3999998807906,21.399998942017" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.3999998807906,21.3999989420175"
-                    Point2="20.3999998807906,21.3999989420175"
-                    Point3="20.3999998807906,25.3999989420175" />
+                    Point1="16.3999998807906,21.399998942017"
+                    Point2="20.3999998807906,21.399998942017"
+                    Point3="20.3999998807906,25.399998942017" />
                   <mssgle:LineSegment
-                    End="20.3999998807906,35.299997884035" />
+                    End="20.3999998807906,35.299997884034" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

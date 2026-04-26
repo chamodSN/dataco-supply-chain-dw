@@ -331,11 +331,7 @@ print(f"  shipments.csv            – {len(shipments):,} rows")
 print("\nGenerating SQL script for SSMS …")
 
 SQL_HEADER = """\
--- ============================================================
--- DataCo Supply Chain – SSMS Staging Database Script
--- Run this in SQL Server Management Studio to create all
--- staging tables and populate them via BULK INSERT later.
--- ============================================================
+
 USE master;
 GO
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'DataCoSupplyChain')

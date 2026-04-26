@@ -7,12 +7,12 @@
   DTS:CreatorName="CHAMOD\chamo"
   DTS:DTSID="{457F3521-AB77-4370-8D8C-122F02EF3146}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="DataCoSupplyChain_Load_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{D9051850-6CD2-4656-85C4-60ACBE10E563}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{F78DA4DC-7ECB-4E35-8A7A-48687E6B5012}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD1eEQuTFZVaD60H+haNL4aHJknAipeipLCQwKWcZNIswAAAAAOgAAAAAIAACAAAABT5RiAyfSlCW3/a98LqCjTi7dBcKZxfbx+F+X+Tn9DSBAAAADUI7ftPveVEXc+bUcyrNd8QAAAAJCELriDV4Lukk5Ct/amymWyDNcpAHVy9zcs3/AtrP+sVsrpgR5en2bjjtarGKaPFj01/aK4UGTb2o7Lyzuim6Y</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABXc2aLCqKeBzOA9K1F2RRNedBKSlfhF7WCQfOea73umQAAAAAOgAAAAAIAACAAAABpjosXPMD8sSfK30pGWlpxU2Z8jsj8w4nD0SaqtZCVjhAAAABzWpOSjDjzMZ9cFeNiK90sQAAAAARyNjFnkszhBYyQHoxPvPQ4rR+4wemBC7KLXwIYYItHk7Qn4osICPXM4oKrneUoiPO5+qvxzK9nU8x6W0bHqG4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACl1OANNPTNvu8jN5Gw2GkLgB7LEIHgkQVFTgVOeutdHQAAAAAOgAAAAAIAACAAAAC9rJcbp/HfJH4pUVd3f1ivJvGQp2HQO9P8hPVFkLIVIhAAAACeGNj/N8RA3MkveU1oA4fTQAAAAOtMG8E9T5kbPxJnQ6/kDPkGip9eAYDsf+cg4ZJU0397xuFB19j6glpLwKzn7Em0f15OfSYt/aFSGJl2PvdK4hw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVV42IRQHUKCpKS4cpsBNAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABVNpAS+Yf1bUAP3GWgs0lBlr0tMFZqfzVsoo9nHyCDWwAAAAAOgAAAAAIAACAAAAAd9t3vHzuKRN9W1LgGe7dletQwlkcyjlU6dWav3/AdnhAAAADkaqcdfSGOEEAJVDNXLVcdQAAAANFAhA8A6B/H2J18o0WT9RNzdPya/mrh9s3xYnSAm0AGgnLTjW759TO9lH8Y/xmsrSSaSuy/g+j09vs70xcaMZI</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -231,6 +231,23 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute DataCoSupplyChain_Load_DW"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{B05AB475-B30D-43C2-8E4F-587931ACF4B0}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute DataCoSupplyChain_Load_DW"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DataCoSupplyChain_Load_DW.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Extract Categories Data to Staging"
       DTS:CreationName="Microsoft.Pipeline"
@@ -2992,7 +3009,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[StgOrder]</property>
+                  name="OpenRowset">[dbo].[StgOrder]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3149,6 +3166,11 @@
                       name="customer_total_sales"
                       precision="12"
                       scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Orders Data to Staging\Load data to Orders Staging table.Inputs[OLE DB Destination Input].ExternalColumns[order_date_clean]"
+                      dataType="wstr"
+                      length="10"
+                      name="order_date_clean" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3989,7 +4011,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[StgShipment]</property>
+                  name="OpenRowset">[dbo].[StgShipment]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4122,6 +4144,11 @@
                       refId="Package\Extract Shipments Data to Staging\Extract Shipments Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[shipping_date]"
                       dataType="dbTimeStamp"
                       name="shipping_date" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Shipments Data to Staging\Extract Shipments Data to Staging.Inputs[OLE DB Destination Input].ExternalColumns[shipping_date_clean]"
+                      dataType="wstr"
+                      length="10"
+                      name="shipping_date_clean" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4447,6 +4474,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Extract Order Items Data to Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{188346E4-E2A2-48F4-81BA-CCCD4E057803}"
+      DTS:From="Package\Extract Order Items Data to Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Execute DataCoSupplyChain_Load_DW" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -4714,6 +4749,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="261.6,41.6"
+          Id="Package\Execute DataCoSupplyChain_Load_DW"
+          TopLeft="678.40000089407,428.447058452186" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="646.030943424333,451.914051022117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.3690574697367,0"
+              Start="0,0"
+              End="24.8690574697367,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="24.8690574697367,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4874,7 +4935,7 @@
     design-time-name="Package\Extract Customers Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
           Id="Package\Extract Customers Data to Staging\OLE DB Source"
@@ -4914,9 +4975,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5219,7 +5278,7 @@
     design-time-name="Package\Extract Orders Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="233.6,41.6"
           Id="Package\Extract Orders Data to Staging\Load data to Orders Staging table"
@@ -5259,9 +5318,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5399,7 +5456,7 @@
     design-time-name="Package\Extract Shipments Data to Staging">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,41.6"
           Id="Package\Extract Shipments Data to Staging\OLE DB Source"
@@ -5439,9 +5496,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
