@@ -1,4 +1,4 @@
-# DataCo Supply Chain Data Warehouse — ETL & Dimensional Modelling
+# DataCo Supply Chain Data Warehouse - ETL & Dimensional Modelling
 
 > IT 3021 — Data Warehouse and Business Intelligence | Assignment 1
 > SLIIT | Nethmina K.G.C.S
