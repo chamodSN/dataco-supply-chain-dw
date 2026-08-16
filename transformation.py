@@ -16,7 +16,7 @@ import re
 import os
 
 # ── CONFIG ───────────────────────────────────────────────────────────────────
-INPUT_FILE = "DataCoSupplyChainDataset.csv"
+INPUT_FILE = "data/DataCoSupplyChainDataset.csv"
 OUTPUT_DIR = "output"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 random.seed(42)
