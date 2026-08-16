@@ -1,7 +1,7 @@
 # DataCo Supply Chain Data Warehouse — ETL & Dimensional Modelling
 
 > IT 3021 — Data Warehouse and Business Intelligence | Assignment 1
-> SLIIT | Nethmina K.G.C.S (IT23403888)
+> SLIIT | Nethmina K.G.C.S
 
 A full source-to-target data warehouse build for the [DataCo Supply Chain dataset](https://data.mendeley.com/datasets/8gx2fvg2k6/5), covering multi-source data separation, dimensional modelling, and SSIS ETL pipelines including SCD Type 2 and an accumulating fact table.
 
@@ -78,23 +78,23 @@ For pipeline data-flow diagrams, data profiling results, and full validation scr
 ## Repository Structure
 
 ```
-├── docs/
-│   └── IT23403888_Assignment1.pdf     # Full assignment report (all pipeline diagrams & screenshots)
-├── sql/
-│   └── supply_chain.sql               # DW schema + stored procedures
-├── ssis/                              # SSIS project files (.dtsx)
-├── images/                            # Key diagrams referenced in this README
+├── docs/                      # Full assignment report (all pipeline diagrams & screenshots)
+├── data/                      # Source dataset(s)
+├── data profiling/            # Data profiling task outputs
+├── DW_Project/                # SSIS project (.dtsx packages)
+├── output/                    # Python data prep output files (CSV/TXT/XLSX per source)
+├── images/                    # Key diagrams referenced in this README
 │   ├── er-diagram.png
 │   ├── data-sources.png
 │   ├── architecture-diagram.png
 │   └── star-schema.png
+├── dataco_star_schema.sql     # DW schema + stored procedures
+├── transformation.py          # Source data prep / multi-source splitting script
 └── README.md
 ```
 
-> Export the 4 figures above from the assignment PDF and save them into `images/` using the exact filenames shown — the links in this README will resolve automatically once the files are in place. All other diagrams (ETL pipelines, data profiling, validation screenshots) are already in the full report under `docs/`.
-
 ## Author
 
-**Nethmina K.G.C.S** (IT23403888)
+**Nethmina K.G.C.S**
 Final-year Data Science undergraduate, SLIIT
 [GitHub](https://github.com/chamodSN) · [Portfolio](https://chamodnethmina.netlify.app)
